@@ -30,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
                     d = d / 100;
                     //B3: chuyển dữ liệu thành chuỗi và hiển thị
                     str = String.valueOf(d);
+                    //xoa số .0 nếu là trường 12.0
+                    int leng = str.length();
+                    if(leng > 0 && str.charAt(leng - 1) == '0' &&
+                            str.charAt(leng-2) == '.'){
+                        str = str.substring(0, leng - 2);
+                    }
                     tv_so.setText(str);
                 } catch (Exception ex){
                 }
