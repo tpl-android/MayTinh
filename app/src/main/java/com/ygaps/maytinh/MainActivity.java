@@ -24,6 +24,23 @@ public class MainActivity extends AppCompatActivity {
         Button b = (Button) v;
         if(so_tt == SO_TRANG_THAI.TRANG_THAI_1){
             String str = String.format("%s%s", tv_so.getText(), b.getText());
+            double d;
+            boolean kiemtraso;
+            try {
+                d = Double.parseDouble(str);//chuyen chuoi thanh so
+                kiemtraso = true;//chuyen thanh so thanh cong
+            } catch (Exception ex){
+                kiemtraso = false;//chuyen thanh so bi loi
+            }
+//            if(str.equals("x.")){//kiem tra dinh dang (kiem tra so dien thoai ...)
+//
+//            }else
+            if(kiemtraso == true){
+                //lay gia tri moi
+            }else{
+                //giu gia tri cua textbox
+                str = tv_so.getText().toString();
+            }
             tv_so.setText(str);
         }else if(so_tt == SO_TRANG_THAI.TRANG_THAI_2){
 
