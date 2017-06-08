@@ -61,8 +61,39 @@ public class MainActivity extends AppCompatActivity {
         tv_so.setText("0");
     }
 
+    public void on_click_am_duong(View v){
+        try {
+            String str = tv_so.getText().toString();
+            double d = Double.parseDouble(str);
+            if(d > 0){
+                str = "-" + str;
+            }else if(d == 0){
+
+            }else{
+                str = str.substring(1);
+            }
+            tv_so.setText(str);
+        } catch (Exception ex){
+        }
+    }
+
     public static class SO_TRANG_THAI{
         public static int TRANG_THAI_1 = 1;//khi nhan thi cong tv voi gia tri nut nhan
         public static int TRANG_THAI_2 = 2;//khi nhan thi gan gia tri tv bang gia tri nut nhan => chuyen ve trang thai 1 lai
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

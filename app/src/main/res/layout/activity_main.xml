@@ -42,8 +42,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="24sp"
-            android:text="+/-" />
+            android:onClick="on_click_am_duong"
+            android:text="+/-"
+            android:textSize="24sp" />
 
         <Button
             android:layout_width="match_parent"
