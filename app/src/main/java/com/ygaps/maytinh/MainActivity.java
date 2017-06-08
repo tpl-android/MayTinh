@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 d = Double.parseDouble(str);//chuyen chuoi thanh so
                 kiemtraso = true;//chuyen thanh so thanh cong
             } catch (Exception ex){
+                d = 0;
                 kiemtraso = false;//chuyen thanh so bi loi
             }
 //            if(str.equals("x.")){//kiem tra dinh dang (kiem tra so dien thoai ...)
@@ -37,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
 //            }else
             if(kiemtraso == true){
                 //lay gia tri moi
+                //str = String.valueOf(d);
+                if(str.charAt(0) == '0'){
+                    if(str.charAt(1) != '.') {
+                        //xoa chu so 0 tai dau
+                        str = str.substring(1);
+                    }
+                }
             }else{
                 //giu gia tri cua textbox
                 str = tv_so.getText().toString();
