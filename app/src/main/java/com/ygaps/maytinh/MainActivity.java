@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,12 +58,36 @@ public class MainActivity extends AppCompatActivity {
         pheptoan = 1;
     }
 
+    public void on_click_phep_chia(View v){
+        String str = tv_so.getText().toString();
+        toantu1 = Double.parseDouble(str);
+        so_tt = SO_TRANG_THAI.TRANG_THAI_2;
+        pheptoan = 4;
+    }
+
     public void on_click_bang(View v){
         if(toantu1 != null && pheptoan >= 1 && pheptoan <= 4){
             String str = tv_so.getText().toString();
             Double toantu2 = Double.parseDouble(str);
             if(pheptoan == 1){
                 Double kq = toantu1 + toantu2;
+                str = String.valueOf(kq);
+                int leng = str.length();
+                if (leng > 0 &&
+                        str.charAt(leng - 1) == '0' &&
+                        str.charAt(leng - 2) == '.') {
+
+                    str = str.substring(0, leng - 2);
+                }
+                tv_so.setText(str);
+            }else if(pheptoan == 4){
+                if(toantu2 == 0){
+                    Toast.makeText(MainActivity.this, "Not a number", Toast.LENGTH_SHORT).show();
+                    //tv_so.setText("Not a number");
+                    so_tt = SO_TRANG_THAI.TRANG_THAI_2;
+                    return;
+                }
+                Double kq = toantu1 / toantu2;
                 str = String.valueOf(kq);
                 int leng = str.length();
                 if (leng > 0 &&
