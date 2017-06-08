@@ -64,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
             if(pheptoan == 1){
                 Double kq = toantu1 + toantu2;
                 str = String.valueOf(kq);
+                int leng = str.length();
+                if (leng > 0 &&
+                        str.charAt(leng - 1) == '0' &&
+                        str.charAt(leng - 2) == '.') {
+
+                    str = str.substring(0, leng - 2);
+                }
                 tv_so.setText(str);
             }
         }
