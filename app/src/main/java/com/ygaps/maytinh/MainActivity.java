@@ -51,11 +51,14 @@ public class MainActivity extends AppCompatActivity {
             }
             tv_so.setText(str);
         }else if(so_tt == SO_TRANG_THAI.TRANG_THAI_2){
-
             tv_so.setText(b.getText());
             so_tt = SO_TRANG_THAI.TRANG_THAI_1;
             
         }
+    }
+
+    public void on_click_ac(View v){
+        tv_so.setText("0");
     }
 
     public static class SO_TRANG_THAI{
