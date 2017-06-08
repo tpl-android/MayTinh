@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int so_tt;
     private TextView tv_so;
+    private Button b_PhanTram;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tv_so = (TextView) findViewById(R.id.tv_number);
+        b_PhanTram = (Button) findViewById(R.id.b_PhanTram);
+        b_PhanTram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    //B1: lấy chuỗi từ giao diện
+                    String str = tv_so.getText().toString();
+                    //B2: chuyển chuỗi thành dữ liệu và xử lý
+                    double d = Double.parseDouble(str);
+                    d = d / 100;
+                    //B3: chuyển dữ liệu thành chuỗi và hiển thị
+                    str = String.valueOf(d);
+                    tv_so.setText(str);
+                } catch (Exception ex){
+                }
+            }
+        });
+
+
         so_tt = SO_TRANG_THAI.TRANG_THAI_1;
     }
 
