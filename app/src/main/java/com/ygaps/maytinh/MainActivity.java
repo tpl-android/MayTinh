@@ -11,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
     private int so_tt;
     private TextView tv_so;
     private Button b_PhanTram;
+    private Double toantu1;
+    private int pheptoan;//1 cong, 2 tru, 3 nhan, 4 chia
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +34,39 @@ public class MainActivity extends AppCompatActivity {
                     str = String.valueOf(d);
                     //xoa số .0 nếu là trường 12.0
                     int leng = str.length();
-                    if(leng > 0 && str.charAt(leng - 1) == '0' &&
-                            str.charAt(leng-2) == '.'){
+                    if (leng > 0 &&
+                            str.charAt(leng - 1) == '0' &&
+                            str.charAt(leng - 2) == '.') {
+
                         str = str.substring(0, leng - 2);
                     }
                     tv_so.setText(str);
-                } catch (Exception ex){
+                } catch (Exception ex) {
                 }
             }
         });
 
 
         so_tt = SO_TRANG_THAI.TRANG_THAI_1;
+    }
+
+    public void on_click_phep_cong(View v){
+        String str = tv_so.getText().toString();
+        toantu1 = Double.parseDouble(str);
+        so_tt = SO_TRANG_THAI.TRANG_THAI_2;
+        pheptoan = 1;
+    }
+
+    public void on_click_bang(View v){
+        if(toantu1 != null && pheptoan >= 1 && pheptoan <= 4){
+            String str = tv_so.getText().toString();
+            Double toantu2 = Double.parseDouble(str);
+            if(pheptoan == 1){
+                Double kq = toantu1 + toantu2;
+                str = String.valueOf(kq);
+                tv_so.setText(str);
+            }
+        }
     }
 
     public void on_click_so(View v){
